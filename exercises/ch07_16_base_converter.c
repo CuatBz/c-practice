@@ -9,27 +9,35 @@ void convertNumber(void);
 void displayConvertedNumber(void);
 
 int main(void) {
-  getNumberAndBase();
-  convertNumber();
-  displayConvertedNumber();
+  int keep_looping;
+  do {
+    getNumberAndBase();
+    if (numberToConvert == 0)
+      keep_looping = 0;
+    else
+      keep_looping = 1;
+    convertNumber();
+    displayConvertedNumber();
+  } while (keep_looping != 0);
 
   return 0;
 }
 
 void getNumberAndBase(void) {
-  printf("Number to be converted? ");
-  scanf("%li", &numberToConvert);
+  do {
+    printf("Number to convert (zero to exit): ");
+    scanf("%li", &numberToConvert);
 
-  printf("Base? ");
-  scanf("%i", &base);
+    printf("Base? ");
+    scanf("%i", &base);
 
-  if (base < 2 || base > 16) {
-    printf("Incorrect base - must be between 2 and 16\n");
-    base = 10;
-  }
+    if (base < 2 || base > 16)
+      printf("Incorrect base - must be between 2 and 16\n");
+  } while (base < 2 || base > 16);
 }
 
 void convertNumber(void) {
+  digit = 0;
   do {
     convertedNumber[digit] = numberToConvert % base;
     ++digit;
