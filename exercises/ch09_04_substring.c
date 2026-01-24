@@ -30,7 +30,7 @@ int main(void) {
 
 int substring(const char source[], int len, int start, int count,
               char result[]) {
-  if ((start + count < len) && start > 0) {
+  if ((start + count) < len && start > 0) {
     int i;
 
     for (i = 0; i < count; ++i)
