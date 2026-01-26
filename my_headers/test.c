@@ -3,11 +3,19 @@
 
 int main(void) {
   char buf[81];
+  int c, count;
 
   printf("Please enter some text: ");
   readLine(buf, 81);
 
-  printf("Your text is:\n%s\n", buf);
+  count = 0;
+  do {
+    c = buf[count];
+    printf("\n%i", c);
+    ++count;
+  } while (buf[count] != '\0');
+
+  printf("\n%i\n", c);
 
   return 0;
 }
