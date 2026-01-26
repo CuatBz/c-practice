@@ -12,7 +12,7 @@ int main(void) {
   int start, count, is_valid;
 
   printf("Please enter some text: ");
-  readLine(input, LEN);
+  nl_readLine(input, LEN);
 
   printf("Please enter the position from where you want to start copying:\n");
   scanf("%i", &start);
